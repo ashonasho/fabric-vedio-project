@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var videoElement = document.createElement('video');
     videoElement.width = 640;
     videoElement.height = 360;
-    videoElement.src = 'C:\Users\Admin\Desktop\fabric projects\fabric vedio project\vedios\fabricvedio.mp4'; // Replace with your video path
+    videoElement.src = 'vedios/fabricvedio.mp4'; // Replace with your video path
     videoElement.crossOrigin = 'anonymous'; // If the video is hosted on another domain
     videoElement.loop = true;
     videoElement.muted = true; // Mute to enable autoplay in most browsers
