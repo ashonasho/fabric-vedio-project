@@ -6,21 +6,24 @@ document.addEventListener("DOMContentLoaded", function () {
     videoElement.width = 640;
     videoElement.height = 360;
     videoElement.src = 'path_to_your_video.mp4'; // Replace with your video path
-    videoElement.crossOrigin = 'anonymous'; // Use this if the video is hosted on another domain
     videoElement.loop = true;
     videoElement.muted = true; // Mute to enable autoplay in most browsers
-    videoElement.play();
 
-    // Create a Fabric.js video object
-    var fabricVideo = new fabric.Image(videoElement, {
-        left: 100,
-        top: 100,
-        angle: 0,
-        objectCaching: false
+    // Play the video after it has loaded data
+    videoElement.addEventListener('loadeddata', function() {
+        videoElement.play();
+
+        // Create a Fabric.js video object
+        var fabricVideo = new fabric.Image(videoElement, {
+            left: 100,
+            top: 100,
+            angle: 0,
+            objectCaching: false
+        });
+
+        // Add the video object to the canvas
+        canvas.add(fabricVideo);
     });
-
-    // Add the video object to the canvas
-    canvas.add(fabricVideo);
 
     // Update the canvas on each frame of the video
     fabric.util.requestAnimFrame(function update() {
